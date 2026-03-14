@@ -1,0 +1,11 @@
+django
+djangorestframework
+djangorestframework_simplejwt
+python-dotenv
+psycopg2-binary
+django-cors-headers
+django-filter
+django-storages
+python-decouple
+whitenoise
+drf_yasg
