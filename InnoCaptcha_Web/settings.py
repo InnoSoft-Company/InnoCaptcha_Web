@@ -18,7 +18,8 @@ ALLOWED_HOSTS = ["*"]
 CSRF_TRUSTED_ORIGINS = [
   "http://localhost:8000",
   "http://127.0.0.1",
-  "https://back-end.edusoft.midoghanam.site",
+  "52.22.189.200:8000",
+  "https://innocaptcha.midoghanam.site",
   'https://e50909ae31ae52a5-156-201-21-94.serveousercontent.com',
 ]
 
