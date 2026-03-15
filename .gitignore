@@ -13,8 +13,11 @@ staticfiles/
 *.pot
 *.mo
 
+# Django migrations
+*/migrations/*.py
+*/migrations/*.pyc
+
 # VSCode / IDE
-.vscode/
 .idea/
 *.sublime-project
 *.sublime-workspace
