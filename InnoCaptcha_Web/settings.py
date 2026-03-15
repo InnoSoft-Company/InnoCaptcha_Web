@@ -12,7 +12,7 @@ ProjectName = "InnoCaptcha_Web"
 DevMode = False
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -96,6 +96,8 @@ if DevMode:
     }
   }
 else:
+  import pymysql
+  pymysql.install_as_MySQLdb()
   DATABASES = {
     'default': {
       'ENGINE': 'django.db.backends.mysql',

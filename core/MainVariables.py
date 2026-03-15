@@ -1,7 +1,8 @@
+from django.conf import settings
 
-HostURL, locathost = "https://authflowx.midoghanam.site", "http://127.0.0.1:8000"
+HostURL, localhost = "https://innocaptcha.midoghanam.site", "http://127.0.0.1:8000"
 
-BaseURL = locathost
+BaseURL = localhost if getattr(settings, "DevMode", False) else HostURL
 
 OAuth = {
   "GitHub": {
