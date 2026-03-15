@@ -1,6 +1,9 @@
+from .serializers import InstallPayloadSerializer
+from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.http import HttpResponse
-from .models import ReposVisitors
+from rest_framework import status
+from .models import *
 
 class ReposVisitorsCountShield(APIView):
   def get(self, request, format=None):
@@ -32,3 +35,12 @@ class ReposVisitorsCountShield(APIView):
     '''
     return HttpResponse(svg, content_type="image/svg+xml")
 
+
+class InstallPingAPIView(APIView):
+  authentication_classes = []
+  permission_classes = []
+  def post(self, request):
+    serializer = InstallPayloadSerializer(data=request.data)
+    if not serializer.is_valid(): return Response({"status": "error", "errors": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+    serializer.save()
+    return Response({"status": "success"}, status=status.HTTP_201_CREATED)
