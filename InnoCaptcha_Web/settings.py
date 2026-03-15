@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-_!5_u_8o94o@m5@_i2a%jz-77q5!_($)t&yi6+43z@%l(9zm+l')
 
-ProjectName = "InnoCaptcha-Web"
+ProjectName = "InnoCaptcha_Web"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
