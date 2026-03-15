@@ -1,26 +1,39 @@
-__pycache__/
+# Python
 *.pyc
 *.pyo
 *.pyd
-*.cache
-.pytest_cache/
-.mypy_cache/
-.venv/
-venv/
-.env
-.env.local
-.env.example
+__pycache__/
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+media/
+staticfiles/
+*.pot
+*.mo
+
+# VSCode / IDE
 .vscode/
 .idea/
-*.log
-*.swp
-*.swo
-*.bak
-*.orig
-*.pyc
-__pycache__/
-*.pyo
-*.pyd
-*.cache
-.pytest_cache/
-.mypy_cache/
+*.sublime-project
+*.sublime-workspace
+
+# Environment
+.env
+venv/
+ENV/
+env/
+.venv/
+
+# Byte-compiled / cache
+*.py[cod]
+*$py.class
+
+# Mac / Linux / Windows
+.DS_Store
+Thumbs.db
+
+# Django migrations cache
+**/__pycache__/
+**/migrations/__pycache__/
