@@ -90,7 +90,7 @@ REST_FRAMEWORK = {
 #DATABASES = {
 #  'default': {
 #      'ENGINE': 'django.db.backends.sqlite3',
-#      'NAME': BASE_DIR / 'main.db',
+##      'NAME': BASE_DIR / 'main.db',
 #  }
 #}
 
@@ -102,7 +102,7 @@ DATABASES = {
     'PASSWORD': "Q2hsEY0J2ZyxOoxWx4WE",
     'HOST': 'localhost',
     'PORT': '3306',
-  }
+  },
 }
 
 # Password validation

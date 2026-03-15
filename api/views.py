@@ -7,10 +7,10 @@ from .models import *
 
 class ReposVisitorsCountShield(APIView):
   def get(self, request, format=None):
-    count = ReposVisitors.objects.count()
+    visitors_obj = ReposVisitors.objects
     label = "visitors"
     w_label = max(50, 8 * len(label) + 20)
-    w_value = max(30, 14 + len(str(count)) * 8)
+    w_value = max(30, 14 + len(str(visitors_obj.count())) * 8)
     w_total = w_label + w_value
     h = 20
     svg = f'''
@@ -29,10 +29,11 @@ class ReposVisitorsCountShield(APIView):
       </g>
       <g fill="#fff" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="11">
         <text x="{w_label/2}" y="14" text-anchor="middle">{label}</text>
-        <text x="{w_label + w_value/2}" y="14" text-anchor="middle">{count}</text>
+        <text x="{w_label + w_value/2}" y="14" text-anchor="middle">{visitors_obj.count()}</text>
       </g>
     </svg>
     '''
+    visitors_obj.create()
     return HttpResponse(svg, content_type="image/svg+xml")
 
 
