@@ -14,8 +14,7 @@ staticfiles/
 *.mo
 
 # Django migrations
-*/migrations/*.py
-*/migrations/*.pyc
+**/migrations/
 
 # VSCode / IDE
 .idea/
