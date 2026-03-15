@@ -2,7 +2,7 @@ django
 djangorestframework
 djangorestframework_simplejwt
 python-dotenv
-psycopg2-binary
+mysqlclient
 django-cors-headers
 django-filter
 django-storages
