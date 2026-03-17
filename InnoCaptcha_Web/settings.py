@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-_!5_u_8o94o@m5@_i2a%jz-77q5!_($)t&yi6+43z@%l(9zm+l')
 
 ProjectName = "InnoCaptcha_Web"
-DevMode = True
+DevMode = False
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
