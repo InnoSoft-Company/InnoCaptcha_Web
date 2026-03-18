@@ -21,3 +21,8 @@ class InstallPayload(models.Model):
     timezone = models.CharField(max_length=50, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     def __str__(self): return f"{self.package} v{self.version} ({self.created_at.date()})"
+
+class CaptchaInstallAnalytics(models.Model):
+  id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+  created_at = models.DateTimeField(auto_now_add=True)
+  def __str__(self): return f"Download id: {self.id} @ {self.created_at}"

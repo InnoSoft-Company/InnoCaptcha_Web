@@ -1,6 +1,7 @@
 from django.http import HttpResponse
-from django.views import View
 from django.conf import settings
+from django.views import View
+from api import models as m
 import os
 
 class DatabaseDownloadView(View):
@@ -9,4 +10,5 @@ class DatabaseDownloadView(View):
     with open(db_path, 'rb') as db_file:
       response = HttpResponse(db_file.read(), content_type='application/octet-stream')
       response['Content-Disposition'] = 'attachment; filename="captcha.db"'
+      m.CaptchaInstallAnalytics.objects.create()
       return response
