@@ -136,11 +136,12 @@ LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale'),]
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-#STATICFILES_DIRS = [BASE_DIR / 'website/static/staticDir']
-STATIC_ROOT = BASE_DIR / 'website/static/collectedStatic'  # ده لو هتعمل collectstatic
-
+STATICFILES_DIRS = [
+  BASE_DIR / 'website' / 'static' / 'staticDir' 
+]
+STATIC_ROOT = BASE_DIR / 'website' / 'static' / 'collectedStatic'  # مكان الملفات بعد collectstatic
+MEDIA_ROOT = BASE_DIR / 'website' / 'static' / 'media'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'website/static/media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

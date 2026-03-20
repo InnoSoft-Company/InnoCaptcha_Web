@@ -1,6 +1,8 @@
 from django.urls import path, re_path, include
 from drf_yasg.views import get_schema_view
+from django.conf.urls.static import static
 from rest_framework import permissions
+from django.conf import settings
 from django.contrib import admin
 from drf_yasg import openapi
 
@@ -16,6 +18,8 @@ urlpatterns = [
   ## Project URLs ## 
   path("auth/", include("authentication.urls")),
   path("competition/", include("competition.urls")),
-
   
 ]
+if settings.DEBUG:
+  urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+  urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
