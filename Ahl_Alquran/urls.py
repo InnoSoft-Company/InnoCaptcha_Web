@@ -15,5 +15,7 @@ urlpatterns = [
 
   ## Project URLs ## 
   path("auth/", include("authentication.urls")),
+  path("competition/", include("competition.urls")),
+
   
 ]

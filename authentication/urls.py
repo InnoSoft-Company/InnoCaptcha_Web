@@ -12,6 +12,5 @@ urlpatterns = [
   ## Reset Password ##
   path("reset-password/", v.ResetPasswordRequestView.as_view(), name="auth-reset_password"),
   path("reset-password/confirm/", v.ResetPasswordConfirmView.as_view(), name="auth-reset_password-confirm"),
-  
 
 ]

@@ -6,6 +6,4 @@ EmailConfig = {
   'accept': 'application/json',
   "API_KEY": "api-EED2BACCB7F24D32B59DBC9C22718E1B",
   "DefaultSender": {"name": "Ahl Alquran", "email": "info@ahl_alquran.midoghanam.site"},
-  
-
 }

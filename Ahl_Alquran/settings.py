@@ -25,9 +25,9 @@ CSRF_TRUSTED_ORIGINS = [
 
 
 INSTALLED_APPS = [
-  'django.contrib.admin', 'django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.messages', 'django.contrib.staticfiles', 'django.contrib.sessions',
-  'drf_yasg',
-  "authentication", "core", 
+  'django.contrib.admin', 'django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.messages', 'django.contrib.staticfiles', 'django.contrib.sessions', 
+  'drf_yasg', 'rest_framework', 'rest_framework_simplejwt.token_blacklist', 
+  "authentication", "core", "competition", 
 ]
 
 MIDDLEWARE = [
@@ -64,6 +64,8 @@ ASGI_APPLICATION = f'{ProjectName}.asgi.application'
 
 # Use custom user model from authentication app
 AUTH_USER_MODEL = 'authentication.Users'
+LOGIN_URL = "auth-login"
+LOGOUT_REDIRECT_URL = "auth-logout"
 
 # REST Framework defaults
 SIMPLE_JWT = {
