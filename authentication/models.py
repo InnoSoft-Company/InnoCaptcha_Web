@@ -34,10 +34,9 @@ class Users(AbstractUser):
     super().save(*args, **kwargs)
   def __str__(self): return self.username
 
-class OAuth(models.Model):
+class GoogleOAuth(models.Model):
   id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
   user = models.OneToOneField("Users", on_delete=models.CASCADE)
-  provider = models.CharField(max_length=20, choices=(("google", "Google"), ("github", "GitHub"),))
   provider_sub = models.CharField(max_length=255, unique=True)
   created_at = models.DateTimeField(auto_now_add=True)
-  def __str__(self): return self.provider + "for user: " + self.user.username
+  def __str__(self): return "Google OAuth for user: " + self.user.username
