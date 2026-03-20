@@ -4,7 +4,7 @@ from . import views as v
 
 urlpatterns = [
   path("register/", v.RegisterAPIView.as_view(), name="auth-register"), 
-  path("login/", v.LoginOTPAPIView.as_view(), name="auth-login"), 
+  path("login/", v.LoginAPIView.as_view(), name="auth-login"), 
   path('token/refresh/', TokenRefreshView.as_view(), name='auth-token_refresh'), 
   path("logout/", v.LogoutAPIView.as_view(), name="auth-logout"), 
 

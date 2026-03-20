@@ -10,7 +10,7 @@ from core import utils
 User = get_user_model()
 OTP_EXPIRY_SECONDS = 300
 
-class LoginOTPAPIView(APIView):
+class LoginAPIView(APIView):
   permission_classes = (permissions.AllowAny,)
   def post(self, request):
     serializer = LoginSerializer(data=request.data)
