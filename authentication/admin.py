@@ -12,3 +12,4 @@ class UserAdmin(BaseUserAdmin):
 
 admin.site.register(User, UserAdmin)
 admin.site.register(GoogleOAuth)
+admin.site.register(PasswordResetToken)

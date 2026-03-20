@@ -21,3 +21,10 @@ class RegisterSerializer(serializers.ModelSerializer):
 class LoginSerializer(serializers.Serializer):
   username = serializers.CharField()
   password = serializers.CharField(write_only=True)
+
+class ResetPasswordRequestSerializer(serializers.Serializer): email = serializers.EmailField()
+
+class ResetPasswordConfirmSerializer(serializers.Serializer):
+  email = serializers.EmailField()
+  token = serializers.CharField()
+  new_password = serializers.CharField(min_length=6)
