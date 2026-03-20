@@ -1,9 +1,7 @@
-from urllib import response
-
-from phonenumbers import data
 from rest_framework_simplejwt.tokens import RefreshToken
 from .MainVariables import EmailConfig
 import hashlib, secrets, requests
+
 def getUserTokens(user):
   refresh = RefreshToken.for_user(user)
   return {"refresh": str(refresh), "access": str(refresh.access_token)}
@@ -17,7 +15,7 @@ import requests
 
 
 class SMTP2GOClient:
-  def __init__(self, api_key, base_url="https://api.smtp2go.com/v3/email/send", timeout=10):
+  def __init__(self, api_key=EmailConfig['API_KEY'], base_url=EmailConfig['API_URL'], timeout=10):
     self.api_key = api_key
     self.base_url = base_url
     self.timeout = timeout
