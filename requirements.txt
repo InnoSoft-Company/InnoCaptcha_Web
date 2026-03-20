@@ -1,0 +1,13 @@
+django
+djangorestframework
+djangorestframework_simplejwt
+python-dotenv
+PyMySQL
+django-cors-headers
+django-filter
+django-storages
+python-decouple
+whitenoise
+drf_yasg
+requests
+user_agents
