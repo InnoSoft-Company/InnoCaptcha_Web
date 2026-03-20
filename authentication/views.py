@@ -1,4 +1,4 @@
-from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, ResetPasswordRequestSerializer
+from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, ResetPasswordRequestSerializer, ResetPasswordConfirmSerializer
 from django.contrib.auth import authenticate, get_user_model
 from rest_framework.authtoken.models import Token
 from rest_framework import status, permissions
@@ -11,7 +11,6 @@ from datetime import timedelta
 from core import utils
 
 User = get_user_model()
-OTP_EXPIRY_SECONDS = 300
 
 class LoginAPIView(APIView):
   permission_classes = (permissions.AllowAny,)
@@ -47,3 +46,21 @@ class ResetPasswordRequestView(APIView):
     if not user.exists(): return Response({"status": False, "message": "User not found"}, status=status.HTTP_400_BAD_REQUEST)
     token_obj = PasswordResetToken.objects.create(user=user, expires_at=timezone.now() + timedelta(minutes=10))
     return Response({"status": True, "message": "Reset token generated", "token": str(token_obj.token)}, status=status.HTTP_200_OK)
+
+class ResetPasswordConfirmView(APIView):
+  def post(self, request):
+    serializer = ResetPasswordConfirmSerializer(data=request.data)
+    serializer.is_valid(raise_exception=True)
+    data = serializer.validated_data
+
+    token_obj = PasswordResetToken.objects.filter(token=data["token"])
+
+    if not token_obj.exists(): return Response({"status": False, "message": "Invalid token"}, status=status.HTTP_400_BAD_REQUEST)
+    token_obj = token_obj.first()
+    if token_obj.is_used or token_obj.is_expired(): return Response({"status": False, "message": "Token expired or used"}, status=status.HTTP_400_BAD_REQUEST)
+    user = token_obj.user
+    user.set_password(data["new_password"])
+    user.save()
+    token_obj.is_used = True
+    token_obj.save()
+    return Response({"status": True, "message": "Password reset successfully"})
