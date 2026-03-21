@@ -44,6 +44,7 @@ class GoogleOAuth(models.Model):
 
 
 class PasswordResetToken(models.Model):
+  id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
   user = models.ForeignKey(Users, on_delete=models.CASCADE)
   token = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
   created_at = models.DateTimeField(auto_now_add=True)

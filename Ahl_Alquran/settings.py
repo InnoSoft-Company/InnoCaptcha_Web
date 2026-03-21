@@ -65,7 +65,7 @@ ASGI_APPLICATION = f'{ProjectName}.asgi.application'
 # Use custom user model from authentication app
 AUTH_USER_MODEL = 'authentication.Users'
 LOGIN_URL = "auth-login"
-LOGOUT_REDIRECT_URL = "auth-logout"
+LOGOUT_URL = "auth-logout"
 
 # REST Framework defaults
 SIMPLE_JWT = {
@@ -81,6 +81,7 @@ REST_FRAMEWORK = {
       'rest_framework.authentication.TokenAuthentication',
       'rest_framework.authentication.SessionAuthentication',
       'rest_framework_simplejwt.authentication.JWTAuthentication',
+      
   ),
   'DEFAULT_PERMISSION_CLASSES': (
       'rest_framework.permissions.IsAuthenticatedOrReadOnly',
@@ -102,9 +103,9 @@ else:
   DATABASES = {
     'default': {
       'ENGINE': 'django.db.backends.mysql',
-      'NAME': "InnoCaptcha",
-      'USER': "InnoCaptcha",
-      'PASSWORD': "Q2hsEY0J2ZyxOoxWx4WE",
+      'NAME': "Ahl_Alquran",
+      'USER': "Ahl_Alquran",
+      'PASSWORD': "",
       'HOST': 'localhost',
       'PORT': '3306',
     },
