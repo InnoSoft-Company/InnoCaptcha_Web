@@ -10,6 +10,8 @@ class Competition(models.Model):
 class Participants(models.Model):
   name = models.CharField(max_length=255)
   competition = models.ForeignKey(Competition, on_delete=models.CASCADE)
-  def __str__(self): return f"{self.name} @ {self.competition.name}"
+
+  score = models.FloatField(default=0.0)
+  def __str__(self): return f"{self.name} @ {self.competition.name} with score {self.score}"
 
 
