@@ -49,7 +49,6 @@ class GoogleOAuth(models.Model):
   created_at = models.DateTimeField(auto_now_add=True)
   def __str__(self): return "Google OAuth for user: " + self.user.username
 
-
 class PasswordResetToken(models.Model):
   id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
   user = models.ForeignKey(Users, on_delete=models.CASCADE)
@@ -60,4 +59,3 @@ class PasswordResetToken(models.Model):
 
   def is_expired(self): return timezone.now() > self.expires_at
   def __str__(self): return f"Password Reset Token for {self.user.username} (Expires: {self.expires_at})"
-
