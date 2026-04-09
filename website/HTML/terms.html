@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html dir="rtl" lang="ar">
 <head>
@@ -116,7 +117,7 @@
       <!-- Footer Info -->
       <div class="mt-12 pt-8 border-t border-outline-variant flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-on-surface-variant font-medium">
         <p>آخر تحديث: ٩ أبريل ٢٠٢٦</p>
-        <p>هل تواجه مشكلة؟ <a href="#" class="text-primary hover:underline">تواصل مع الدعم الفني</a></p>
+        <p>هل تواجه مشكلة؟ <a href="{% url 'support' %}" class="text-primary hover:underline">تواصل مع الدعم الفني</a></p>
       </div>
     </div>
     

@@ -110,7 +110,7 @@
             <!-- Header Section -->
             <div class="flex justify-between items-end mb-12">
                 <div>
-                    <h2 class="text-3xl font-extrabold text-primary mb-2">أهلاً بك، عبد الرحمن</h2>
+                    <h2 class="text-3xl font-extrabold text-primary mb-2">أهلاً بك، {{user.get_full_name}}</h2>
                     <p class="text-on-surface-variant">تابع تقدمك في مسابقات القرآن الكريم لهذا العام.</p>
                 </div>
                 <button class="bg-primary-container text-white px-8 py-3 rounded-lg font-bold flex items-center gap-3 hover:opacity-90 transition-all shadow-lg shadow-primary-container/20">
@@ -128,13 +128,14 @@
                     </div>
                     <div>
                         <p class="text-on-surface-variant text-sm mb-1">حالة المستخدم</p>
-                        <h3 class="text-xl font-bold">طالب مسجل</h3>
+                        <h3 class="text-xl font-bold">{{user.get_role_display}}</h3>
                     </div>
                 </div>
                 <div class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow flex flex-col gap-4">
                     <div class="flex justify-between items-start">
                         <span class="material-symbols-outlined text-secondary text-3xl">school</span>
                     </div>
+                    
                     <div>
                         <p class="text-on-surface-variant text-sm mb-1">المستوى الحالي</p>
                         <h3 class="text-xl font-bold text-secondary">ربع القرآن</h3>

@@ -7,21 +7,22 @@ import uuid
 
 class UserManager(BaseUserManager):
   def _normalize_username(self, field): return field.lower()
-  def create_user(self, username, email, phone=None, password=None, **extra_fields):
+  def create_user(self, username, email, phone, password=None, **extra_fields):
     if not username: raise ValueError("The Username must be set")
     if not email: raise ValueError("The E-mail must be set")
+    if not phone: raise ValueError("The Phone must be set")
     user = self.model(username=self._normalize_username(username), email=self._normalize_username(email), phone=phone, **extra_fields)
     user.set_password(password)
     user.save(using=self._db)
     return user
 
-  def create_superuser(self, username, email, phone=None, password=None, **extra_fields):
+  def create_superuser(self, username, email, phone, password=None, **extra_fields):
     extra_fields.setdefault('is_staff', True)
     extra_fields.setdefault('is_superuser', True)
     extra_fields.setdefault('is_active', True)
     if extra_fields.get('is_staff') is not True: raise ValueError('Superuser must have is_staff=True.')
     if extra_fields.get('is_superuser') is not True: raise ValueError('Superuser must have is_superuser=True.')
-    return self.create_user(username, email, phone=phone, password=password, **extra_fields)
+    return self.create_user(username, email, password, phone, **extra_fields)
 
 class Users(AbstractUser):
   class Role(models.TextChoices):
@@ -31,7 +32,7 @@ class Users(AbstractUser):
     SUPERVISOR = 'supervisor', 'مشرف'
 
   id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-  phone = PhoneNumberField(unique=True, region="EG", null=True, blank=True)
+  phone = PhoneNumberField(unique=True, region="EG")
   role = models.CharField(max_length=20, choices=Role.choices, default=Role.USER, verbose_name="الدور")
   created_at = models.DateTimeField(auto_now_add=True)
 
@@ -39,7 +40,9 @@ class Users(AbstractUser):
   def save(self, *args, **kwargs):
     self.username, self.email = self.username.lower(), self.email.lower()
     super().save(*args, **kwargs)
-  def get_role_display_ar(self): return dict(self.Role.choices).get(self.role, self.role)
+  class Role():
+    def get_role_display_ar(self): return dict(self.Role.choices).get(self.role, self.role)
+
   def __str__(self): return self.username
 
 class GoogleOAuth(models.Model):

@@ -7,5 +7,5 @@ class RedirectAuthenticatedUserMiddleware:
   def __call__(self, request):
     if request.user.is_authenticated:
       auth_paths = [reverse('auth-login'), reverse('auth-register')]
-      if request.path in auth_paths: return redirect('/')
+      if request.path in auth_paths: return redirect('dashboard')
     return self.get_response(request)

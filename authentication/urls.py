@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views as v
+from .views import auth as v
 
 urlpatterns = [
   ## Simple Auth System ##

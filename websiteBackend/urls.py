@@ -6,5 +6,6 @@ urlpatterns = [
   path("terms/", v.terms, name="terms"),
   path("privacy/", v.privacy, name="privacy"),
 
-  path("dashboard/", v.dashboard, name="dashboard")
+  path("dashboard/", v.dashboard, name="dashboard"),
+  path("support/", v.support, name="support"),
 ]

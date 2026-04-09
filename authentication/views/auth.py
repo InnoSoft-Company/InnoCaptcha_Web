@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth import logout
 from core.utils import redirectToNext
 from django.contrib import messages
-from . import models as m
+from .. import models as m
 
 User = get_user_model()
 
@@ -22,7 +22,7 @@ def login(request):
     if user is not None:
       auth_login(request, user)
       nextSaved = request.session.get("next", "")
-      return redirectToNext(request=request, to=nextSaved if nextSaved else redirect('home'))
+      return redirectToNext(request=request, to=nextSaved if nextSaved else redirect('dashboard'))
     else:
       messages.error(request, "بيانات الدخول غير صحيحة")
       return redirect('auth-login')
