@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="أهل القرآن - أكبر مسابقة دولية لحفظ وتجويد القرآن الكريم" />
   <title>أهل القرآن - مسابقة القرآن الكريم</title>
+  <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -120,10 +121,16 @@
           <div id="profile-dropdown" role="menu" aria-label="قائمة الملف الشخصي" class="dropdown hidden absolute left-0 top-full mt-2 w-56 bg-white rounded-2xl shadow-2xl border border-parchment overflow-hidden">
             <div class="p-4 border-b border-parchment">
               <p class="font-bold text-forest text-sm">{{ user.get_full_name|default:user.username }}</p>
-              <p class="text-xs text-ink-muted">طالب متسابق</p>
+              <p class="text-xs text-ink-muted">{{ user.get_role_display }}</p>
             </div>
             <ul>
               <li><a role="menuitem" href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-cream text-sm text-ink"><span class="material-symbols-outlined text-base">person</span>ملفي الشخصي</a></li>
+              {% if user.role == 'admin' or user.role == 'supervisor' %}
+              <li><a role="menuitem" href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-cream text-sm text-ink"><span class="material-symbols-outlined text-base">dashboard</span>لوحة التحكم</a></li>
+              {% endif %}
+              {% if user.role == 'judge' %}
+              <li><a role="menuitem" href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-cream text-sm text-ink"><span class="material-symbols-outlined text-base">grading</span>لوحة التحكيم</a></li>
+              {% endif %}
               <li><a role="menuitem" href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-cream text-sm text-ink"><span class="material-symbols-outlined text-base">settings</span>الإعدادات</a></li>
               <li><a role="menuitem" href="{% url 'auth-logout' %}" class="flex items-center gap-3 px-4 py-3 hover:bg-cream text-sm text-red-600"><span class="material-symbols-outlined text-base">logout</span>تسجيل الخروج</a></li>
             </ul>

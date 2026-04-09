@@ -25,14 +25,21 @@ class UserManager(BaseUserManager):
     return self.create_user(username, email, phone, password, **extra_fields)
 
 class Users(AbstractUser):
+  class Role(models.TextChoices):
+    STUDENT    = 'student',    'طالب متسابق'
+    ADMIN      = 'admin',      'مسؤول'
+    SUPERVISOR = 'supervisor', 'مشرف'
+
   id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
   phone = PhoneNumberField(unique=True, region="EG")
+  role = models.CharField(max_length=20, choices=Role.choices, default=Role.STUDENT, verbose_name="الدور")
   created_at = models.DateTimeField(auto_now_add=True)
 
   objects = UserManager()
   def save(self, *args, **kwargs):
     self.username, self.email = self.username.lower(), self.email.lower()
     super().save(*args, **kwargs)
+  def get_role_display_ar(self): return dict(self.Role.choices).get(self.role, self.role)
   def __str__(self): return self.username
 
 class GoogleOAuth(models.Model):
