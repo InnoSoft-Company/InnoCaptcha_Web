@@ -22,17 +22,18 @@ class UserManager(BaseUserManager):
     extra_fields.setdefault('is_active', True)
     if extra_fields.get('is_staff') is not True: raise ValueError('Superuser must have is_staff=True.')
     if extra_fields.get('is_superuser') is not True: raise ValueError('Superuser must have is_superuser=True.')
-    return self.create_user(username, email, phone, password, **extra_fields)
+    return self.create_user(username, email, password, phone, **extra_fields)
 
 class Users(AbstractUser):
   class Role(models.TextChoices):
-    STUDENT    = 'student',    'طالب متسابق'
-    ADMIN      = 'admin',      'مسؤول'
+    USER = 'USER', "مستخدم"
+    STUDENT = 'student', 'طالب متسابق'
+    ADMIN = 'admin', 'مسؤول'
     SUPERVISOR = 'supervisor', 'مشرف'
 
   id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
   phone = PhoneNumberField(unique=True, region="EG")
-  role = models.CharField(max_length=20, choices=Role.choices, default=Role.STUDENT, verbose_name="الدور")
+  role = models.CharField(max_length=20, choices=Role.choices, default=Role.USER, verbose_name="الدور")
   created_at = models.DateTimeField(auto_now_add=True)
 
   objects = UserManager()
