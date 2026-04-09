@@ -1,0 +1,89 @@
+/* login.css */
+body {
+    background-color: #F8FAF8;
+    font-family: "Cairo", sans-serif;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.islamic-pattern {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuACvFdFd05QwIRQk9zrK9rgQHgrdQnjDrrpKmrgYoBFQNJMpKvz71UpZrUzy9MkUQQdc0XBYFmoODUwp53d1oD5jzXjt2_p1un_vy12a37s9OrCSUJZojWbgPmYwZfQDohjL_nP0HkOOPpFpsnkPDgS-axC2yCPUHNwKexl3QSqHdjLUH-xILFKfFb7XDq5I61cvBS6nlH-DuEEEd9YBzmCn9e-5MlHAFTcwiUDK5ZWo0c51hpQRdecJOyMbUE84TpqOfkp2Rk5Wfs);
+    opacity: 0.04;
+}
+
+.editorial-shadow {
+    box-shadow: 0 20px 40px -8px rgba(27, 94, 32, 0.08);
+}
+
+.reveal-section {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(12px);
+    pointer-events: none;
+    overflow: hidden;
+    margin: 0 !important;
+    transition:
+        max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.4s ease,
+        transform 0.4s ease,
+        margin 0.4s ease;
+}
+
+.reveal-section.active {
+    max-height: 800px;   /* زيادة القيمة لضمان ظهور جميع العناصر + رابط إنشاء حساب */
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    margin-top: 1.5rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.method-card {
+    transition: all 0.3s ease;
+}
+
+.method-card.selected {
+    border-color: #1B5E20;
+    background-color: #F1F8F1;
+    box-shadow: 0 4px 12px rgba(27, 94, 32, 0.1);
+}
+
+.method-card.selected .icon-circle {
+    background-color: #1B5E20;
+    color: white;
+}
+
+input:focus {
+    box-shadow: 0 0 0 4px rgba(27, 94, 32, 0.1) !important;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(0.5);
+}
+
+/* Message Alerts */
+.message-alert {
+    animation: slideDownFade 0.4s ease-out forwards;
+}
+
+@keyframes slideDownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message-alert.fade-out {
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+    transition: all 0.3s ease-out;
+}

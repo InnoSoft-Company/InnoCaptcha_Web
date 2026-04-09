@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>إنشاء حساب جديد - نظام إدارة مسابقات القرآن</title>
+  
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#f9f9f9",
+            "surface-container-high": "#e8e8e8",
+            "inverse-on-surface": "#f1f1f1",
+            "error-container": "#ffdad6",
+            "on-error": "#ffffff",
+            "on-secondary-container": "#735a00",
+            "surface-container": "#eeeeee",
+            "on-tertiary": "#ffffff",
+            "on-surface": "#1a1c1c",
+            "surface-dim": "#dadada",
+            "surface-container-low": "#f3f3f3",
+            "primary-fixed": "#acf4a4",
+            "secondary-container": "#fed255",
+            "background": "#f9f9f9",
+            "surface-bright": "#f9f9f9",
+            "secondary-fixed": "#ffe08e",
+            "surface-tint": "#2a6b2c",
+            "inverse-surface": "#2f3131",
+            "on-primary-container": "#90d689",
+            "error": "#ba1a1a",
+            "tertiary": "#6b1d3d",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary": "#ffffff",
+            "on-tertiary-fixed-variant": "#7a2949",
+            "primary-fixed-dim": "#91d78a",
+            "inverse-primary": "#91d78a",
+            "on-error-container": "#93000a",
+            "secondary-fixed-dim": "#ecc246",
+            "outline-variant": "#c0c9bb",
+            "on-secondary-fixed": "#241a00",
+            "primary-container": "#1b5e20",
+            "secondary": "#755b00",
+            "on-tertiary-fixed": "#3e001d",
+            "tertiary-container": "#883454",
+            "on-primary-fixed-variant": "#0c5216",
+            "primary": "#00450d",
+            "tertiary-fixed-dim": "#ffb1c8",
+            "on-primary": "#ffffff",
+            "surface-container-highest": "#e2e2e2",
+            "on-tertiary-container": "#ffaec6",
+            "on-primary-fixed": "#002203",
+            "tertiary-fixed": "#ffd9e2",
+            "surface-variant": "#e2e2e2",
+            "on-background": "#1a1c1c",
+            "on-secondary-fixed-variant": "#584400",
+            "outline": "#717a6d",
+            "on-surface-variant": "#41493e"
+          },
+          fontFamily: {
+            "headline": ["Tajawal", "sans-serif"],
+            "body": ["Cairo", "sans-serif"],
+            "label": ["Cairo", "sans-serif"]
+          },
+          borderRadius: { "DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1.25rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/static/css/auth/register.css">
+</head>
+
+<body class="bg-surface text-on-surface min-h-screen flex items-center justify-center p-4 relative overflow-x-hidden">
+  
+  <!-- Background Decorative Elements -->
+  <div class="fixed inset-0 islamic-pattern pointer-events-none"></div>
+  <div class="fixed -top-24 -right-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="fixed -bottom-24 -left-24 w-96 h-96 bg-secondary/5 rounded-full blur-3xl pointer-events-none"></div>
+  
+  <main class="w-full max-w-xl z-10">
+    
+    <!-- Logo / Branding Section -->
+    <div class="text-center mb-10">
+      <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-primary to-primary-container mb-4 shadow-xl shadow-primary/10">
+        <span class="material-symbols-outlined text-white text-4xl" data-icon="auto_stories">auto_stories</span>
+      </div>
+      <h1 class="font-headline text-3xl font-extrabold text-primary tracking-tight">نظام إدارة مسابقات القرآن</h1>
+      <p class="text-on-surface-variant mt-2 font-medium opacity-80">ابدأ رحلتك في خدمة كتاب الله</p>
+    </div>
+
+    <!-- Django Messages Area -->
+    {% if messages %}
+    <div class="mb-6 space-y-3 px-1 z-20 relative w-full">
+      {% for message in messages %}
+      <div class="message-alert flex items-start gap-3 p-4 rounded-xl border shadow-sm transition-all duration-300 
+        {% if message.tags == 'error' %}bg-error-container border-error/20 text-on-error-container
+        {% elif message.tags == 'success' %}bg-primary-fixed border-primary/20 text-on-primary-fixed
+        {% elif message.tags == 'warning' %}bg-secondary-fixed border-secondary/20 text-on-secondary-fixed
+        {% else %}bg-surface-container-high border-outline/20 text-on-surface-variant{% endif %}">
+        
+        <div class="flex items-center gap-3 flex-1">
+          <span class="material-symbols-outlined text-xl shrink-0">
+            {% if message.tags == 'error' %}error
+            {% elif message.tags == 'success' %}check_circle
+            {% elif message.tags == 'warning' %}warning
+            {% else %}info{% endif %}
+          </span>
+          <p class="font-body text-sm font-bold">{{ message }}</p>
+        </div>
+        <button class="shrink-0 opacity-60 hover:opacity-100 transition-opacity p-1 rounded-full hover:bg-black/5 flex items-center justify-center mr-2" onclick="closeAlert(this)" type="button">
+          <span class="material-symbols-outlined text-lg" data-icon="close">close</span>
+        </button>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Registration Card -->
+    <div class="glass-card border border-white/50 rounded-xl shadow-[0_32px_64px_-12px_rgba(0,69,13,0.06)] p-8 md:p-12 overflow-hidden relative">
+      <div class="flex flex-col gap-6">
+        <div class="space-y-1">
+          <h2 class="text-2xl font-bold text-on-surface font-headline">إنشاء حساب جديد</h2>
+          <p class="text-on-surface-variant text-sm">أدخل بياناتك للانضمام إلى المسابقة</p>
+        </div>
+        
+        <form class="space-y-5" id="registerForm" method="POST">
+          {% csrf_token %}
+          
+          <!-- Full Name -->
+          <div class="space-y-2">
+            <label class="block text-sm font-bold text-on-surface-variant mr-1">الاسم الكامل</label>
+            <div class="relative group">
+              <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors" data-icon="person">person</span>
+              <input class="w-full pr-12 pl-4 py-3.5 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all outline-none text-on-surface placeholder:text-outline" placeholder="أدخل اسمك الكامل" type="text" name="full_name" id="fullName" required/>
+            </div>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <!-- Email -->
+            <div class="space-y-2">
+              <label class="block text-sm font-bold text-on-surface-variant mr-1">البريد الإلكتروني</label>
+              <div class="relative group">
+                <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors" data-icon="mail">mail</span>
+                <input class="w-full pr-12 pl-4 py-3.5 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all outline-none text-on-surface placeholder:text-outline ltr text-left" placeholder="example@domain.com" type="email" name="email" id="email" required/>
+              </div>
+            </div>
+            
+            <!-- Phone -->
+            <div class="space-y-2">
+              <label class="block text-sm font-bold text-on-surface-variant mr-1">رقم الهاتف</label>
+              <div class="relative group">
+                <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors" data-icon="call">call</span>
+                <input class="w-full pr-12 pl-4 py-3.5 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all outline-none text-on-surface placeholder:text-outline ltr text-left" placeholder="01xxxxxxxxx" type="tel" name="phone" id="phone" required/>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Password Section -->
+          <div id="password-section" class="relative rounded-2xl transition-all duration-700 z-10 mt-2">
+            <div class="flex items-center gap-2 text-primary mb-4">
+              <span class="material-symbols-outlined">shield_lock</span>
+              <h3 class="font-bold text-sm">إعداد كلمة المرور</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5" id="password-fields-grid">
+              <!-- Password -->
+              <div class="space-y-2 password-unit transition-all duration-500 relative z-10">
+                <label class="block text-sm font-bold text-on-surface-variant mr-1">كلمة المرور</label>
+                <div class="relative group">
+                  <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors z-20 pointer-events-none" data-icon="lock">lock</span>
+                  <input class="pw-input w-full pr-12 pl-12 py-3.5 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all outline-none text-on-surface placeholder:text-outline relative z-10" placeholder="••••••••" type="password" name="password" id="password" required/>
+                  <!-- Eye Toggle -->
+                  <button type="button" class="eye-toggle absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center text-outline hover:text-primary transition-colors z-30 rounded-full hover:bg-black/5 focus:outline-none">
+                     <span class="material-symbols-outlined text-[20px]">visibility</span>
+                  </button>
+                </div>
+              </div>
+              
+              <!-- Confirm Password -->
+              <div class="space-y-2 password-unit transition-all duration-500 relative z-10">
+                <label class="block text-sm font-bold text-on-surface-variant mr-1">تأكيد كلمة المرور</label>
+                <div class="relative group">
+                  <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors z-20 pointer-events-none" data-icon="lock_reset">lock_reset</span>
+                  <input class="pw-input w-full pr-12 pl-12 py-3.5 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all outline-none text-on-surface placeholder:text-outline relative z-10" placeholder="••••••••" type="password" name="password_confirm" id="passwordConfirm" required/>
+                  <!-- Eye Toggle -->
+                  <button type="button" class="eye-toggle absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center text-outline hover:text-primary transition-colors z-30 rounded-full hover:bg-black/5 focus:outline-none">
+                     <span class="material-symbols-outlined text-[20px]">visibility</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Terms Checkbox -->
+          <div class="flex items-start gap-3 py-2">
+            <input class="mt-1 w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20 cursor-pointer" id="terms" name="terms" type="checkbox" required/>
+            <label class="text-xs leading-relaxed text-on-surface-variant" for="terms">
+              أوافق على <a class="text-primary font-bold hover:underline" href="#">شروط الاستخدام</a> و <a class="text-primary font-bold hover:underline" href="#">سياسة الخصوصية</a> الخاصة بالمسابقة.
+            </label>
+          </div>
+          
+          <!-- Submit Button -->
+          <button class="w-full bg-primary-container text-on-primary py-4 px-6 rounded-lg font-bold text-lg shadow-lg shadow-primary/20 hover:bg-primary transition-all flex items-center justify-center gap-2 group active:scale-[0.98]" type="submit">
+            إنشاء حساب
+            <span class="material-symbols-outlined transition-transform group-hover:-translate-x-1" data-icon="arrow_back">arrow_back</span>
+          </button>
+        </form>
+        
+        <!-- Footer Link -->
+        <div class="pt-6 border-t border-surface-container flex flex-col items-center gap-4">
+          <p class="text-on-surface-variant font-medium">
+            هل لديك حساب؟ 
+            <a class="text-primary font-extrabold hover:text-primary-container transition-colors mr-1 underline underline-offset-4 decoration-primary/30 hover:decoration-primary" href="{% url 'auth-login' %}">تسجيل الدخول</a>
+          </p>
+          
+          <!-- Decorative Element at bottom of card -->
+          <div class="flex gap-2 justify-center">
+            <div class="w-16 h-1 bg-primary rounded-full"></div>
+            <div class="w-8 h-1 bg-primary/20 rounded-full"></div>
+            <div class="w-8 h-1 bg-primary/20 rounded-full"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Support Info -->
+    <div class="mt-12 text-center text-outline text-xs font-medium space-y-2 opacity-60">
+      <p>جميع الحقوق محفوظة © 2024 نظام إدارة مسابقات القرآن</p>
+      <div class="flex justify-center gap-6">
+        <a class="hover:text-primary" href="#">الدعم الفني</a>
+        <a class="hover:text-primary" href="#">الأسئلة الشائعة</a>
+        <a class="hover:text-primary" href="#">عن المقرأة</a>
+      </div>
+    </div>
+  </main>
+  
+  <!-- Background Images / Accents -->
+  <div class="fixed top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-primary-container opacity-50"></div>
+  
+  <!-- Abstract Illustration Elements -->
+  <div class="absolute top-1/2 -left-20 -translate-y-1/2 opacity-[0.04] pointer-events-none hidden lg:block">
+    <img class="w-96 rounded-full rotate-45" data-alt="Abstract Islamic geometric pattern in green" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDT1qkJLKtItHJl3w75u6v-mh-0Qai3-GWSN1SYEYl9M6P9XNbA2KOHTN_78QFuuAmypsduuUhwvl7JaK9pRRTLhP2DzTZ3l5jKIqhz3ZsWIdBlcJJhxHiQmXSVQfLsO8qHCfrZSdxaByImhYaA1VQhFkQ90w0qpIE9pXIl1C3IEbFGDm6Lw802AeJdxjyg16MZFfXOTZl_66imuZt-GQsVxtjTKlVyOI6BUn9CuGL5GfR_vTjnysLY89kHxXsNZ4YhASyB6en6QM"/>
+  </div>
+  
+  <div class="absolute top-1/4 -right-20 opacity-[0.04] pointer-events-none hidden lg:block">
+    <img class="w-80 rounded-full -rotate-12" data-alt="Intricate Arabic calligraphy background pattern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeM4dIJD-3NHgDp9ezZPR49iEk4EBa1KXirwFFSpJw1GPBXBg_PvYsIV8Jyo0ulnmEToUZ-kj3yGkd7KHhsnsMN68UE-ppX7T-FKGniNmsekc6Z4jG5PF68yA-Zu-LveHjLbWn6L4LcUJ-q_QXKaY-6_B8952qOfWP0VIcuLmNITVUp4WQWM9hr8LZnRagr7D-cEmrE_V3Jmh3odeHig6oU2_8s9vx4NPH1V6eM3cbGspCloB_XA9CEDb-gAYV62Tbl0M_jKvqqKw"/>
+  </div>
+  
+  <!-- Spotlight Overlay Elements -->
+  <div id="dark-overlay" class="fixed inset-0 bg-[#001404] opacity-0 pointer-events-none transition-opacity duration-700 z-40 backdrop-blur-[2px]"></div>
+  <div id="spotlight-beam" class="absolute pointer-events-none transition-all duration-700 opacity-0 z-[45]" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.0) 100%);"></div>
+
+  <!-- Custom JavaScript -->
+  <script src="/static/js/auth/register.js"></script>
+</body>
+</html>

@@ -1,18 +1,22 @@
 from rest_framework_simplejwt.tokens import RefreshToken
+from django.http import HttpResponseRedirect
 from .MainVariables import EmailConfig
-import hashlib, secrets, requests
-
-def getUserTokens(user):
-  refresh = RefreshToken.for_user(user)
-  return {"refresh": str(refresh), "access": str(refresh.access_token)}
+import hashlib, secrets, requests, re
+from django.shortcuts import render
 
 def generate_secure_token(): 
   token = secrets.token_urlsafe(32)
   hashed = hashlib.sha256(token.encode()).hexdigest()
   return token, hashed
 
-import requests
-
+def redirectToNext(request, to='/'):
+  if isinstance(to, HttpResponseRedirect):
+    to = to.url
+  if not isinstance(to, str):
+    to = '/'
+  match = re.search(r'(/.*)', to)
+  safe_to = match.group(1) if match else '/'
+  return render(request, 'utils/redirect.html', {'to': safe_to})
 
 class SMTP2GOClient:
   def __init__(self, api_key=EmailConfig['API_KEY'], base_url=EmailConfig['API_URL'], timeout=10):

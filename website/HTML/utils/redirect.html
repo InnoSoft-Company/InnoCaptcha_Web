@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>جاري التوجيه - نظام إدارة مسابقات القرآن</title>
+
+  <!-- Auto Redirect Meta Tag (Fallback) -->
+  {% if redirect_url %}
+  <meta http-equiv="refresh" content="2;url={{ redirect_url }}" />
+  {% endif %}
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Cairo:wght@300;400;600;700;900&display=swap"
+    rel="stylesheet" />
+
+  <!-- Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind Configuration -->
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#f9f9f9",
+            "surface-container-high": "#e8e8e8",
+            "surface-container": "#eeeeee",
+            "on-surface": "#1a1c1c",
+            "surface-container-low": "#f3f3f3",
+            "primary": "#1B5E20",
+            "surface-container-lowest": "#ffffff",
+            "outline": "#717a6d",
+            "on-surface-variant": "#41493e"
+          },
+          fontFamily: {
+            "headline": ["Tajawal", "sans-serif"],
+            "body": ["Cairo", "sans-serif"],
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #f9f9f9;
+      font-family: "Cairo", sans-serif;
+    }
+    
+    .spinner {
+      width: 55px;
+      height: 55px;
+      border: 4px solid rgba(27, 94, 32, 0.15);
+      border-radius: 50%;
+      border-right-color: #1B5E20;
+      animation: spin 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .pulse-text {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: .6;
+      }
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+    }
+    
+    .islamic-pattern {
+      background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDtoKQH8OZ30gfbCUXLwO9MIk9WLFsf5H5Fdev7lPYPRH2_E3pO2zzwOyMhSsTuIYTV540mjtYGGJzqkO2LQc3q3_ndxmC5tJ3vX8MFnCYOUKsv7fRy1XtfCm5I9uW4nOqcbwLHxwMqzz75uqJLZPGc_IAcAhYGAygE2rZ3NGmJvikvjj144Yg3_0exgiRFzXbw2OdP7CYVtw4kiPCaM01QuYNxgbPA_xWeq9gQaoiqNilGXUsXaJ-2EeFoKKu-temnxKLL4laGv0c);
+      opacity: 0.03;
+    }
+    
+    .fade-in-up {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-4 relative overflow-hidden bg-surface">
+
+  <!-- Background Decor -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div class="absolute inset-0 islamic-pattern"></div>
+    <div class="absolute top-[-15%] left-[-15%] w-[50%] h-[50%] bg-primary/5 rounded-full blur-[100px]"></div>
+    <div class="absolute bottom-[-15%] right-[-15%] w-[50%] h-[50%] bg-[#fed255]/5 rounded-full blur-[100px]"></div>
+  </div>
+
+  <main class="w-full max-w-sm m-auto z-10 relative fade-in-up">
+    <div class="glass-card rounded-2xl shadow-[0_20px_40px_-8px_rgba(27,94,32,0.08)] p-8 text-center border border-white/50 overflow-hidden relative">
+      
+      <!-- Top Accents -->
+      <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/10 via-primary to-primary/10"></div>
+      
+      <!-- Icon/Spinner -->
+      <div class="flex justify-center mb-6 relative mt-4">
+        <div class="absolute inset-0 flex items-center justify-center opacity-[0.08]">
+          <span class="material-symbols-outlined text-6xl text-primary" data-icon="auto_stories">auto_stories</span>
+        </div>
+        <div class="spinner relative z-10 shadow-sm"></div>
+      </div>
+
+      <!-- Text -->
+      <h1 class="font-headline text-2xl font-extrabold text-on-surface mb-2">جاري التوجيه</h1>
+      <p class="font-body text-on-surface-variant text-sm mb-6 pulse-text leading-relaxed px-4">
+        {% if message %}
+          {{ message }}
+        {% else %}
+          يرجى الانتظار قليلاً بينما نقوم بنقلك للصفحة المطلوبة...
+        {% endif %}
+      </p>
+
+      <!-- Fallback button -->
+      {% if redirect_url %}
+      <div class="pt-4 border-t border-surface-container">
+        <a href="{{ redirect_url }}" class="inline-flex items-center justify-center gap-2 text-primary font-bold text-sm hover:bg-primary/5 px-4 py-2.5 rounded-xl transition-all hover:-translate-x-1 group">
+          <span>انقر هنا فوراً</span>
+          <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform" data-icon="arrow_back">arrow_back</span>
+        </a>
+      </div>
+      {% endif %}
+    </div>
+
+  </main>
+
+  <!-- JS Redirect Logic -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // الحصول على رابط التوجيه من الباك إند
+      const redirectUrl = "{{ redirect_url|default:''|escapejs }}";
+      
+      if (redirectUrl) {
+        // الانتظار للحظات للحصول على تجربة مستخدم سلسة قبل التوجيه
+        setTimeout(() => {
+          window.location.replace(redirectUrl);
+        }, 2000);
+      }
+    });
+  </script>
+</body>
+</html>
