@@ -16,8 +16,8 @@ urlpatterns = [
   path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 
   ## Project URLs ## 
+  path("", include("websiteBackend.urls")),
   path("auth/", include("authentication.urls")),
-  path("competition/", include("competition.urls")),
   
 ]
 

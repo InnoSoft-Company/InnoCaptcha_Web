@@ -27,7 +27,7 @@ CSRF_TRUSTED_ORIGINS = [
 INSTALLED_APPS = [
   'django.contrib.admin', 'django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.messages', 'django.contrib.staticfiles', 'django.contrib.sessions', 
   'drf_yasg', 'rest_framework', 'rest_framework_simplejwt.token_blacklist', 
-  "authentication", "core", "competition", 'administrators',
+  "authentication", "core", "websiteBackend",
 ]
 
 MIDDLEWARE = [
@@ -45,7 +45,7 @@ ROOT_URLCONF = f'{ProjectName}.urls'\
 TEMPLATES = [
   {
       'BACKEND': 'django.template.backends.django.DjangoTemplates',
-      'DIRS': [],
+      'DIRS': [ BASE_DIR / "website/HTML" ],
       'APP_DIRS': True,
       'OPTIONS': {
           'context_processors': [
