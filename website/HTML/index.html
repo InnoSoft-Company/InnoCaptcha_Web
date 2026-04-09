@@ -572,15 +572,11 @@
             تبدأ مرحلة التصفيات الأولية قريباً، لا تدع الفرصة تفوتك وكن جزءاً من هذا الحدث القرآني الكبير.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <button id="cta-register-btn"
-                    class="btn-amber btn-lg"
-                    aria-label="سجل الآن مجاناً في المسابقة">
+            <button class="btn-amber btn-lg" onclick="window.location.href='{% url 'auth-register' %}?next=/'">
               <span class="material-symbols-outlined">how_to_reg</span>
-              سجل الآن مجاناً
+               سجل الآن مجاناً
             </button>
-            <button id="cta-guide-btn"
-                    class="btn-ghost-light btn-lg"
-                    aria-label="تحميل الدليل التعريفي للمسابقة">
+            <button id="cta-guide-btn" class="btn-ghost-light btn-lg" aria-label="تحميل الدليل التعريفي للمسابقة">
               <span class="material-symbols-outlined">download</span>
               تحميل الدليل التعريفي
             </button>

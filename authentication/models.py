@@ -40,8 +40,8 @@ class Users(AbstractUser):
   def save(self, *args, **kwargs):
     self.username, self.email = self.username.lower(), self.email.lower()
     super().save(*args, **kwargs)
-  class Role():
-    def get_role_display_ar(self): return dict(self.Role.choices).get(self.role, self.role)
+  def get_role_display_ar(self): return dict(self.Role.choices).get(self.role, self.role)
+  def is_student(self): return self.role == self.Role.STUDENT
 
   def __str__(self): return self.username
 
