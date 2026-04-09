@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html dir="rtl" lang="ar">
 
@@ -85,7 +86,7 @@
   </script>
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="/static/css/auth/login.css">
+  <link rel="stylesheet" href="{% static 'css/auth/login.css' %}">
 </head>
 
 <body class="min-h-screen flex p-4 relative overflow-x-hidden">
@@ -277,7 +278,7 @@
   </div>
 
   <!-- Custom JavaScript -->
-  <script src="/static/js/auth/login.js"></script>
+  <script src="{% static 'js/auth/login.js' %}"></script>
 </body>
 
 </html>

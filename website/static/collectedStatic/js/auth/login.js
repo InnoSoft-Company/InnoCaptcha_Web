@@ -26,7 +26,7 @@ function selectMethod(method) {
             break;
         case 'phone':
             label.innerText = 'رقم الهاتف';
-            input.placeholder = '05xxxxxxxx';
+            input.placeholder = '01xxxxxxxxx';
             input.type = 'tel';
             icon.innerText = 'phone_iphone';
             break;
