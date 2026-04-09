@@ -177,7 +177,7 @@
           <div class="flex items-start gap-3 py-2">
             <input class="mt-1 w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20 cursor-pointer" id="terms" name="terms" type="checkbox" required/>
             <label class="text-xs leading-relaxed text-on-surface-variant" for="terms">
-              أوافق على <button type="button" class="text-primary font-bold hover:underline underline-offset-4" onclick="openModal('terms-modal')">شروط الاستخدام</button> و <button type="button" class="text-primary font-bold hover:underline underline-offset-4" onclick="openModal('privacy-modal')">سياسة الخصوصية</button> الخاصة بالمسابقة.
+              أوافق على <a href="{% url 'terms' %}" target="_blank" class="text-primary font-bold hover:underline underline-offset-4">شروط الاستخدام</a> و <a href="{% url 'privacy' %}" target="_blank" class="text-primary font-bold hover:underline underline-offset-4">سياسة الخصوصية</a> الخاصة بالمسابقة.
             </label>
           </div>
           
