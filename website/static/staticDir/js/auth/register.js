@@ -25,20 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Custom form validation before submitting
-    const registerForm = document.getElementById('registerForm');
-    if (registerForm) {
-        registerForm.addEventListener('submit', function(e) {
-            const password = document.getElementById('password').value;
-            const passwordConfirm = document.getElementById('passwordConfirm').value;
-            
-            if (password !== passwordConfirm) {
-                e.preventDefault(); // إيقاف إرسال النموذج إذا كانت كلمات المرور لا تتطابق
-                alert('كلمة المرور وتأكيد كلمة المرور غير متطابقين!');
-            }
-        });
-    }
-
     // تأثير كشاف الإضاءة المنفصل لكل حقل باسورد
     const eyeToggles = document.querySelectorAll('.eye-toggle');
     const overlay = document.getElementById('dark-overlay');
@@ -106,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // فحص إذا كان هناك حقل آخر مفتوح
                 const anyActive = Array.from(document.querySelectorAll('.pw-input')).some(i => i.type === 'text');
                 if (!anyActive) {
-                    overlay.classList.remove('opacity-90');
+                overlay.classList.remove('opacity-80');
                     overlay.classList.add('opacity-0');
                     beam.classList.remove('opacity-100');
                     beam.classList.add('opacity-0');
@@ -127,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 pwUnit.classList.remove('z-10');
                 
                 overlay.classList.remove('opacity-0');
-                overlay.classList.add('opacity-90');
+                overlay.classList.add('opacity-80');
                 beam.classList.remove('opacity-0');
                 beam.classList.add('opacity-100');
                 
@@ -139,3 +125,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('resize', updateBeam);
 });
+
+// Modal Logic
+window.openModal = function(id) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    modal.classList.add('opacity-100');
+    
+    const content = modal.querySelector('.modal-content');
+    content.classList.remove('scale-95');
+    content.classList.add('scale-100');
+};
+
+window.closeModal = function(id) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    modal.classList.add('opacity-0', 'pointer-events-none');
+    modal.classList.remove('opacity-100');
+    
+    const content = modal.querySelector('.modal-content');
+    content.classList.add('scale-95');
+    content.classList.remove('scale-100');
+};
