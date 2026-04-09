@@ -124,14 +124,14 @@
               <p class="text-xs text-ink-muted">{{ user.get_role_display }}</p>
             </div>
             <ul>
-              <li><a role="menuitem" href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-cream text-sm text-ink"><span class="material-symbols-outlined text-base">person</span>ملفي الشخصي</a></li>
+              <li><a role="menuitem" href="{% url 'dashboard' %}" class="flex items-center gap-3 px-4 py-3 hover:bg-cream text-sm text-ink"><span class="material-symbols-outlined text-base">person</span>ملفي الشخصي</a></li>
               {% if user.role == 'admin' or user.role == 'supervisor' %}
-              <li><a role="menuitem" href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-cream text-sm text-ink"><span class="material-symbols-outlined text-base">dashboard</span>لوحة التحكم</a></li>
+              <li><a role="menuitem" href="{% url 'dashboard' %}" class="flex items-center gap-3 px-4 py-3 hover:bg-cream text-sm text-ink"><span class="material-symbols-outlined text-base">dashboard</span>لوحة التحكم</a></li>
               {% endif %}
               {% if user.role == 'judge' %}
-              <li><a role="menuitem" href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-cream text-sm text-ink"><span class="material-symbols-outlined text-base">grading</span>لوحة التحكيم</a></li>
+              <li><a role="menuitem" href="{% url 'dashboard' %}" class="flex items-center gap-3 px-4 py-3 hover:bg-cream text-sm text-ink"><span class="material-symbols-outlined text-base">grading</span>لوحة التحكيم</a></li>
               {% endif %}
-              <li><a role="menuitem" href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-cream text-sm text-ink"><span class="material-symbols-outlined text-base">settings</span>الإعدادات</a></li>
+              <li><a role="menuitem" href="{% url 'dashboard' %}" class="flex items-center gap-3 px-4 py-3 hover:bg-cream text-sm text-ink"><span class="material-symbols-outlined text-base">settings</span>الإعدادات</a></li>
               <li><a role="menuitem" href="{% url 'auth-logout' %}" class="flex items-center gap-3 px-4 py-3 hover:bg-cream text-sm text-red-600"><span class="material-symbols-outlined text-base">logout</span>تسجيل الخروج</a></li>
             </ul>
           </div>
@@ -639,9 +639,9 @@
       <div class="container-wide py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/50">
         <p>© ٢٠٢٤ أهل القرآن — جميع الحقوق محفوظة</p>
         <div class="flex gap-6">
-          <a href="#" class="hover:text-white transition-colors">سياسة الخصوصية</a>
-          <a href="#" class="hover:text-white transition-colors">الشروط والأحكام</a>
-          <a href="#" class="hover:text-white transition-colors">اتصل بنا</a>
+          <a href="{% url 'privacy' %}" class="hover:text-white transition-colors">سياسة الخصوصية</a>
+          <a href="{% url 'terms' %}" class="hover:text-white transition-colors">الشروط والأحكام</a>
+          <a href="{% url 'support' %}" class="hover:text-white transition-colors">اتصل بنا</a>
         </div>
       </div>
     </div>

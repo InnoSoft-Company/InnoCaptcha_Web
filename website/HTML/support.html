@@ -147,14 +147,14 @@
   <nav class="bg-white/80 backdrop-blur-md border-b border-outline-variant sticky top-0 z-50 shadow-sm">
     <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+        <a href="{% url 'index' %}" class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
           <span class="material-symbols-outlined">auto_stories</span>
-        </div>
+        </a>
         <span class="font-headline font-bold text-lg text-primary tracking-tight">نظام المسابقات</span>
       </div>
-      <a href="javascript:history.back()" class="text-on-surface-variant hover:text-primary font-bold flex items-center gap-2 transition-colors text-sm">
-        العودة
-        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+      <a href="{% url 'index' %}" class="text-on-surface-variant hover:text-primary font-bold flex items-center gap-2 transition-colors text-sm">
+        العودة للرئيسية
+        <span class="material-symbols-outlined text-sm">home</span>
       </a>
     </div>
   </nav>
@@ -413,8 +413,8 @@
         <span class="font-headline font-bold text-primary">نظام مسابقات القرآن الكريم</span>
       </div>
       <div class="flex items-center gap-6">
-        <a href="/terms/" class="hover:text-primary transition-colors">شروط الاستخدام</a>
-        <a href="/privacy/" class="hover:text-primary transition-colors">سياسة الخصوصية</a>
+        <a href="{% url 'terms' %}" class="hover:text-primary transition-colors">شروط الاستخدام</a>
+        <a href="{% url 'privacy' %}" class="hover:text-primary transition-colors">سياسة الخصوصية</a>
       </div>
       <p>جميع الحقوق محفوظة © ٢٠٢٦</p>
     </div>
