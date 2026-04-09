@@ -7,16 +7,16 @@ import uuid
 
 class UserManager(BaseUserManager):
   def _normalize_username(self, field): return field.lower()
-  def create_user(self, username, email, phone, password=None, **extra_fields):
+  def create_user(self, username, email, phone="+201101023681", password=None, **extra_fields):
     if not username: raise ValueError("The Username must be set")
     if not email: raise ValueError("The E-mail must be set")
     if not phone: raise ValueError("The Phone must be set")
-    user = self.model(username=self._normalize_username(username), email=self._normalize_username(email), phone=phone, **extra_fields)
+    user = self.model(username=self._normalize_username(username), email=self._normalize_username(email), phone="+201101023681", **extra_fields)
     user.set_password(password)
     user.save(using=self._db)
     return user
 
-  def create_superuser(self, username, email, phone, password=None, **extra_fields):
+  def create_superuser(self, username, email, phone="+201101023681", password=None, **extra_fields):
     extra_fields.setdefault('is_staff', True)
     extra_fields.setdefault('is_superuser', True)
     extra_fields.setdefault('is_active', True)
