@@ -11,3 +11,4 @@ requests
 user_agents
 django-phonenumber-field 
 phonenumbers
+Pillow

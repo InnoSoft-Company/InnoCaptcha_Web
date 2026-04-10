@@ -1,3 +1,4 @@
+from django.core.files.storage import FileSystemStorage
 from datetime import timedelta
 from pathlib import Path
 import os
@@ -148,6 +149,14 @@ STATIC_ROOT = BASE_DIR / 'website' / 'static' / 'collectedStatic'  # مكان ا
 MEDIA_ROOT = BASE_DIR / 'website' / 'static' / 'media'
 MEDIA_URL = '/media/'
 
+FILE_UPLOAD_PERMISSIONS = 0o644
+FILE_UPLOAD_MAX_MEMORY_SIZE = 5242880  # 5MB
+DATA_UPLOAD_MAX_MEMORY_SIZE = 5242880
+
+class MyFileSystemStorage(FileSystemStorage):
+  def _save(self, name, content): return super()._save(name, content)
+
+DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CACHES = {
