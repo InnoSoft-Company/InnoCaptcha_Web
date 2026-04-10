@@ -1,0 +1,594 @@
+[
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "token_blacklist",
+    "model": "blacklistedtoken"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "token_blacklist",
+    "model": "outstandingtoken"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "authentication",
+    "model": "googleoauth"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "authentication",
+    "model": "passwordresettoken"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "fields": {
+    "app_label": "authentication",
+    "model": "users"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "601mks1xad3z1167xeooo7zsng6s2hot",
+  "fields": {
+    "session_data": "e30:1wAxgi:4iP0CE94-u26z4sPMkpwYVl3VHQB0J_a3RU7LwhnCPk",
+    "expire_date": "2026-04-23T22:17:24.426Z"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": [
+      "admin",
+      "logentry"
+    ],
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view permission",
+    "content_type": [
+      "auth",
+      "permission"
+    ],
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view group",
+    "content_type": [
+      "auth",
+      "group"
+    ],
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view content type",
+    "content_type": [
+      "contenttypes",
+      "contenttype"
+    ],
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view session",
+    "content_type": [
+      "sessions",
+      "session"
+    ],
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add Blacklisted Token",
+    "content_type": [
+      "token_blacklist",
+      "blacklistedtoken"
+    ],
+    "codename": "add_blacklistedtoken"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change Blacklisted Token",
+    "content_type": [
+      "token_blacklist",
+      "blacklistedtoken"
+    ],
+    "codename": "change_blacklistedtoken"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete Blacklisted Token",
+    "content_type": [
+      "token_blacklist",
+      "blacklistedtoken"
+    ],
+    "codename": "delete_blacklistedtoken"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view Blacklisted Token",
+    "content_type": [
+      "token_blacklist",
+      "blacklistedtoken"
+    ],
+    "codename": "view_blacklistedtoken"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add Outstanding Token",
+    "content_type": [
+      "token_blacklist",
+      "outstandingtoken"
+    ],
+    "codename": "add_outstandingtoken"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change Outstanding Token",
+    "content_type": [
+      "token_blacklist",
+      "outstandingtoken"
+    ],
+    "codename": "change_outstandingtoken"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete Outstanding Token",
+    "content_type": [
+      "token_blacklist",
+      "outstandingtoken"
+    ],
+    "codename": "delete_outstandingtoken"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view Outstanding Token",
+    "content_type": [
+      "token_blacklist",
+      "outstandingtoken"
+    ],
+    "codename": "view_outstandingtoken"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add user",
+    "content_type": [
+      "authentication",
+      "users"
+    ],
+    "codename": "add_users"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change user",
+    "content_type": [
+      "authentication",
+      "users"
+    ],
+    "codename": "change_users"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete user",
+    "content_type": [
+      "authentication",
+      "users"
+    ],
+    "codename": "delete_users"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view user",
+    "content_type": [
+      "authentication",
+      "users"
+    ],
+    "codename": "view_users"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add google o auth",
+    "content_type": [
+      "authentication",
+      "googleoauth"
+    ],
+    "codename": "add_googleoauth"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change google o auth",
+    "content_type": [
+      "authentication",
+      "googleoauth"
+    ],
+    "codename": "change_googleoauth"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete google o auth",
+    "content_type": [
+      "authentication",
+      "googleoauth"
+    ],
+    "codename": "delete_googleoauth"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view google o auth",
+    "content_type": [
+      "authentication",
+      "googleoauth"
+    ],
+    "codename": "view_googleoauth"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can add password reset token",
+    "content_type": [
+      "authentication",
+      "passwordresettoken"
+    ],
+    "codename": "add_passwordresettoken"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can change password reset token",
+    "content_type": [
+      "authentication",
+      "passwordresettoken"
+    ],
+    "codename": "change_passwordresettoken"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can delete password reset token",
+    "content_type": [
+      "authentication",
+      "passwordresettoken"
+    ],
+    "codename": "delete_passwordresettoken"
+  }
+},
+{
+  "model": "auth.permission",
+  "fields": {
+    "name": "Can view password reset token",
+    "content_type": [
+      "authentication",
+      "passwordresettoken"
+    ],
+    "codename": "view_passwordresettoken"
+  }
+},
+{
+  "model": "authentication.users",
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$JN1UqOa8iBGttYI6T2BXPp$ALf+qVE9hGu0I+EOMJj6IYyorWYd3Crwk2Pl9TvZhK8=",
+    "last_login": "2026-04-09T22:17:44.036Z",
+    "is_superuser": true,
+    "username": "midoghanam",
+    "first_name": "Mohammed",
+    "last_name": "Ahmed Ghanam",
+    "email": "midoghanam@hotmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-04-09T22:17:06.162Z",
+    "phone": "+201101023681",
+    "role": "supervisor",
+    "created_at": "2026-04-09T22:17:06.972Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-04-09T22:17:55.869Z",
+    "user": [
+      "midoghanam"
+    ],
+    "content_type": [
+      "authentication",
+      "users"
+    ],
+    "object_id": "a94000b1-aba0-4ab3-b1da-fccb7f2c8b00",
+    "object_repr": "midoghanam",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Phone\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-04-09T22:34:57.340Z",
+    "user": [
+      "midoghanam"
+    ],
+    "content_type": [
+      "authentication",
+      "users"
+    ],
+    "object_id": "a94000b1-aba0-4ab3-b1da-fccb7f2c8b00",
+    "object_repr": "midoghanam",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0627\\u0644\\u062f\\u0648\\u0631\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-04-09T22:35:03.547Z",
+    "user": [
+      "midoghanam"
+    ],
+    "content_type": [
+      "authentication",
+      "users"
+    ],
+    "object_id": "a94000b1-aba0-4ab3-b1da-fccb7f2c8b00",
+    "object_repr": "midoghanam",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0627\\u0644\\u062f\\u0648\\u0631\"]}}]"
+  }
+}
+]

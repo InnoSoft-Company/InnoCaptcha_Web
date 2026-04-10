@@ -21,6 +21,7 @@ CSRF_TRUSTED_ORIGINS = [
   "http://127.0.0.1", 
   "http://52.22.189.200:8000",
   "https://ahl_alquran.midoghanam.site",
+  "https://88430bc165fbe6ef-156-201-25-200.serveousercontent.com",
 ]
 
 
