@@ -35,6 +35,12 @@ def register(request):
     email = request.POST.get('email')
     phone = request.POST.get('phone')
     password = request.POST.get('password')
+    id_image = request.FILES.get('id_image')
+    
+    if not id_image:
+      messages.error(request, "يجب إرفاق صورة الهوية أو شهادة الميلاد")
+      return redirect('auth-register')
+      
     if password != request.POST.get('password_confirm'):
       messages.error(request, "الباسورد غير مطابق")
       return redirect('auth-register')
@@ -47,7 +53,9 @@ def register(request):
     if phone and User.objects.filter(phone=phone).exists():
       messages.error(request, "رقم الهاتف مسجل بالفعل")
       return redirect('auth-register')
+      
     user = User.objects.create_user(username=username, email=email, phone=phone, password=password)
+    user.id_image = id_image
     user.save()
     messages.success(request, "تم انشاء الحساب بنجاح")
     return redirect('auth-login')

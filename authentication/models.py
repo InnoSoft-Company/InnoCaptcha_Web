@@ -34,6 +34,7 @@ class Users(AbstractUser):
   id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
   phone = PhoneNumberField(unique=True, region="EG")
   role = models.CharField(max_length=20, choices=Role.choices, default=Role.USER, verbose_name="الدور")
+  id_image = models.ImageField(upload_to="id_images/", null=True, blank=True, verbose_name="صورة الهوية")
   created_at = models.DateTimeField(auto_now_add=True)
 
   objects = UserManager()

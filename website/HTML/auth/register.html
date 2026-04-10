@@ -107,7 +107,7 @@
           <p class="text-on-surface-variant text-sm">أدخل بياناتك للانضمام إلى المسابقة</p>
         </div>
         
-        <form class="space-y-5" id="registerForm" method="POST">
+        <form class="space-y-5" id="registerForm" method="POST" enctype="multipart/form-data">
           {% csrf_token %}
           
           <!-- Full Name -->
@@ -172,6 +172,15 @@
                   </button>
                 </div>
               </div>
+            </div>
+          </div>
+          
+          <!-- ID Image Field -->
+          <div class="space-y-2 relative z-10">
+            <label class="block text-sm font-bold text-on-surface-variant mr-1">صورة الهوية أو شهادة الميلاد</label>
+            <div class="relative group">
+              <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors" data-icon="badge">badge</span>
+              <input class="w-full pr-12 pl-4 py-3.5 bg-surface-container-low border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary/40 focus:border-primary transition-all outline-none text-on-surface file:border-0 file:bg-primary/10 file:text-primary file:font-bold file:px-4 file:py-1 file:rounded-full file:ml-4 hover:file:bg-primary/20 cursor-pointer" type="file" name="id_image" accept="image/*" required/>
             </div>
           </div>
           
